@@ -10,7 +10,7 @@ public abstract class CadastroCliente {
 	private int numero;
 	private String complemento;
 
-	//Método construtor
+	// Método construtor
 
 	public CadastroCliente(int numeroConta, String nome, String telefone, String email, String bairro, String rua,
 			int numero, String complemento) {
@@ -24,7 +24,7 @@ public abstract class CadastroCliente {
 		this.numero = numero;
 		this.complemento = complemento;
 	}
-	
+
 	public int getNumeroConta() {
 		return numeroConta;
 	}
@@ -94,7 +94,8 @@ public abstract class CadastroCliente {
 		System.out.println("\tNome: " + this.nome);
 		System.out.println("\tTelefone: " + this.telefone);
 		System.out.println("\tEmail: " + this.email);
-		System.out.println("\tEndereço: " + this.rua + ", " + this.numero + ", " + this.bairro + ", " + this.complemento);
+		System.out
+				.println("\tEndereço: " + this.rua + ", " + this.numero + ", " + this.bairro + ", " + this.complemento);
 
 	}
 

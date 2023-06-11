@@ -9,16 +9,16 @@ import conta.controller.ControllerConta;
 public class TesteCadastro {
 
 	public static void main(String[] args) {
-		ControllerConta contas = new ControllerConta ();
+		ControllerConta contas = new ControllerConta();
 		int opcoesMenu, numeroConta;
-		
+
 		Scanner leia = new Scanner(System.in);
-		
+
 		while (true) {
 			System.out.println();
 			System.out.println(" ______________________________________________________");
 			System.out.println("                                                       ");
-			//nome temporário, até decidir um;
+			// nome temporário, até decidir um;
 			System.out.println("\t\t Pizzaria Ai que Massa");
 			System.out.println(" ______________________________________________________");
 			System.out.println("\n\t\t\t MENU\n");
@@ -70,7 +70,7 @@ public class TesteCadastro {
 				contas.procurarPorConta(numeroConta);
 				KeyPress();
 				break;
-			
+
 			case 3:
 				System.out.println(" ______________________________________________________");
 				System.out.println("                                                       ");
@@ -80,15 +80,14 @@ public class TesteCadastro {
 				contas.atualizarDadosConta(leia, contas);
 				KeyPress();
 				break;
-		
+
 			case 4:
 				System.out.println(" ______________________________________________________");
 				System.out.println("                                                       ");
 				System.out.println("\t\tFaça seu Pedido");
 				System.out.println(" ______________________________________________________");
 				System.out.println("                                                       ");
-				
-		
+
 			case 5:
 				System.out.println(" ______________________________________________________");
 				System.out.println("                                                       ");
@@ -97,7 +96,7 @@ public class TesteCadastro {
 				System.out.println("                                                       ");
 				KeyPress();
 				break;
-		
+
 			case 6:
 				System.out.println(" ______________________________________________________");
 				System.out.println("                                                       ");
@@ -109,7 +108,7 @@ public class TesteCadastro {
 				contas.deletar(numeroConta);
 				KeyPress();
 				break;
-				
+
 			case 7:
 				System.out.println(" ______________________________________________________");
 				System.out.println("                                                       ");
@@ -119,14 +118,15 @@ public class TesteCadastro {
 				contas.listarTodasContas();
 				KeyPress();
 				break;
-				
+
 			default:
 				System.out.println("\n\t\tOpção Invalida!\n");
 				KeyPress();
 				break;
 			}
 		}
-}
+	}
+
 	public static void KeyPress() {
 		try {
 			System.out.println("\n\n\tPressione Enter para Continuar ...");
@@ -134,7 +134,7 @@ public class TesteCadastro {
 		} catch (IOException e) {
 			System.out.println("\tVocê pressionou uma tecla diferente de enter!");
 		}
-		
+
 	}
 
 }
