@@ -110,6 +110,7 @@ public class TesteCadastro {
 					System.out.print("\tDigite o número da conta: ");
 					numeroConta = leia.nextInt();
 					contas.deletar(numeroConta);
+					pedidos.excluirPedido(numeroConta);
 					KeyPress();
 					break;
 
@@ -133,7 +134,8 @@ public class TesteCadastro {
 			case 2 -> {
 				System.out.println("\t [1] - Fazer Pedido");
 				System.out.println("\t [2] - Acompanhe seu pedido");
-				System.out.println("\t [3] - Voltar para o Menu");
+				System.out.println("\t [3] - Deletar pedidos");
+				System.out.println("\t [4] - Voltar para o Menu");
 				System.out.println(" ______________________________________________________");
 				System.out.print("\n\t Escolha a opção desejada: ");
 
@@ -168,8 +170,20 @@ public class TesteCadastro {
 					contas.procurarPorConta(numeroPedido);
 					KeyPress();
 					break;
-
+					
 				case 3:
+					System.out.println(" ______________________________________________________");
+					System.out.println("                                                       ");
+					System.out.println("\t\tDeletar Pedidos");
+					System.out.println(" ______________________________________________________");
+					System.out.println("                                                       ");
+					System.out.print("\tDigite o número do Pedido: ");
+					numeroPedido = leia.nextInt();
+					pedidos.excluirPedido(numeroPedido);
+					KeyPress();
+					break;
+
+				case 4:
 					System.out.println(" ______________________________________________________");
 					System.out.println("                                                       ");
 					System.out.println("\t\tVoltando para o Menu...");

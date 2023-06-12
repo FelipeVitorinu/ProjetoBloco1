@@ -16,13 +16,6 @@ public class ControllerConta implements InterfacePizzaria{
 	int numeroConta = 0;
 	Random gerador = new Random();
 	
-	
-	//procura o pedido informado, e mostra seu status
-	@Override
-	public void procurarPorPedido(int numeroPedido) {
-		
-	}
-	
 	//procura pela conta informada pelo usuario
 	@Override
 	public void procurarPorConta(int numeroConta) {
@@ -87,12 +80,6 @@ public class ControllerConta implements InterfacePizzaria{
 		
 	}
 	
-	//pagamento do pedido
-	@Override
-	public void pagar(int numeroPedido, float valor) {
-		// TODO Auto-generated method stub
-		
-	}
 	
 	
 	//gerar numero da conta
@@ -101,7 +88,6 @@ public class ControllerConta implements InterfacePizzaria{
 		return ++ numeroConta;
 	}
 
-	
 	
 	//percorre toda a lista e encontra a conta informada
 	public CadastroCliente buscarNaListaConta(int numeroConta) {
@@ -185,12 +171,7 @@ public class ControllerConta implements InterfacePizzaria{
         
     }
 	
-	
-	@Override
-	public void listarTodosPedidos() {
-		
-		
-	}
+
 
 	
 }

@@ -68,6 +68,13 @@ public class Cardapio{
         listaSabores.add("Frango com Catupiry                          ");
         listaSabores.add("Mussarela                                    ");
         listaSabores.add("Portuguesa                                   ");
+        listaSabores.add("A Bolonhesa                                  ");
+        listaSabores.add("Bacon                                        ");
+        listaSabores.add("Dois Queijos                                 ");
+        listaSabores.add("Espanhola                                    ");
+        listaSabores.add("Lombo                                        ");
+        listaSabores.add("Napolitana                                   ");
+        
         
     }
     
@@ -78,6 +85,14 @@ public class Cardapio{
         valoresPizza.add(33.00);
         valoresPizza.add(46.00);
         valoresPizza.add(44.00);
+        valoresPizza.add(40.00);
+        valoresPizza.add(42.00);
+        valoresPizza.add(44.00);
+        valoresPizza.add(43.00);
+        valoresPizza.add(40.00);
+        valoresPizza.add(38.00);
+ 
+        
     }
    
     
@@ -234,6 +249,24 @@ public class Cardapio{
         }
     }
     
+    public void excluirPedido(int numeroPedido) {
+        boolean pedidoEncontrado = false;
+
+        for (int i = 0; i < listaPedidos.size(); i++) {
+            String pedido = listaPedidos.get(i);
+            if (pedido.contains("Número do pedido: " + numeroPedido)) {
+                listaPedidos.remove(i);
+                pedidoEncontrado = true;
+                System.out.println("\tPedido " + numeroPedido + " excluído com sucesso.");
+                break;
+            }
+        }
+
+        if (!pedidoEncontrado) {
+            System.out.println("Pedido não encontrado.");
+        }
+    }
+    
     
     //metodo para mostrar status do pedido
     /*public void statusPedido() {
@@ -246,16 +279,7 @@ public class Cardapio{
     
     	/*public void visualizar() {
 		
-		System.out.println("1 - A Bolonhesa................................R$40,00");
-		System.out.println("2 - Bacon......................................R$42,00");
-		System.out.println("3 - Calabresa..................................R$33,00");
-		System.out.println("4 - Dois Queijos...............................R$44,00");
-		System.out.println("5 - Espanhola..................................R$43,00");
-		System.out.println("6 - Frango com Catupiry........................R$46,00");
-		System.out.println("7 - Lombo......................................R$40,00");
-		System.out.println("8 - Mussarela..................................R$33,00");
-		System.out.println("9 - Napolitana.................................R$38,00");
-		System.out.println("10- Portuguesa.................................R$44,00");
+		
 }*/
     
     
