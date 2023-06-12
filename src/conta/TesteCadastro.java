@@ -4,13 +4,16 @@ import java.io.IOException;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+import cardapio.Pedidos;
 import conta.controller.ControllerConta;
 
 public class TesteCadastro {
 
 	public static void main(String[] args) {
 		ControllerConta contas = new ControllerConta();
-		int opcoesMenu, numeroConta;
+		Pedidos pedidos = new Pedidos();
+
+		int opcoesMenu, opcoesConta, opcoesPedido, numeroConta, numeroPedido;
 
 		Scanner leia = new Scanner(System.in);
 
@@ -22,16 +25,11 @@ public class TesteCadastro {
 			System.out.println("\t\t Pizzaria Ai que Massa");
 			System.out.println(" ______________________________________________________");
 			System.out.println("\n\t\t\t MENU\n");
-			System.out.println("\t [1] - Criar Conta ");
-			System.out.println("\t [2] - Consulte sua Conta");
-			System.out.println("\t [3] - Atualizar Dados da Conta");
-			System.out.println("\t [4] - Fazer Pedido");
-			System.out.println("\t [5] - Acompanhe seu pedido");
-			System.out.println("\t [6] - Deletar Conta");
-			System.out.println("\t [7] - Lista de todas as Contas");
-			System.out.println("\t [8] - Sair");
+			System.out.println("\t\t[1] - Cadastro");
+			System.out.println("\t\t[2] - Pedidos");
+			System.out.println("\t\t[3] - Sair");
 			System.out.println(" ______________________________________________________");
-			System.out.print("\n\tEscolha a opção desejada: ");
+			System.out.print("\n\t Escolha a opção desejada: ");
 
 			try {
 				opcoesMenu = leia.nextInt();
@@ -41,89 +39,155 @@ public class TesteCadastro {
 				opcoesMenu = 0;
 			}
 
-			if (opcoesMenu == 8) {
+			if (opcoesMenu == 3) {
 				System.out.println("\n\tAGRADECEMOS SUA PREFERÊNCIA");
-				System.out.println("\tEQUIPE Pizzaria ai que massa");
+				System.out.println("\t\tEQUIPE Pizzaria ai que massa");
 
 				leia.close();
 				System.exit(0);
 			}
 
 			switch (opcoesMenu) {
-			case 1:
-				System.out.println(" ______________________________________________________");
-				System.out.println("                                                       ");
-				System.out.println("\t\t\t Criar Conta");
-				System.out.println(" ______________________________________________________");
-				System.out.println("                                                       ");
-				contas.criarConta(leia, contas);
-				KeyPress();
-				break;
-			case 2:
-				System.out.println(" ______________________________________________________");
-				System.out.println("                                                       ");
-				System.out.println("\t\tConsulte sua Conta");
-				System.out.println(" ______________________________________________________");
-				System.out.println("                                                       ");
-				System.out.print("\tDigite o número da sua conta: ");
-				numeroConta = leia.nextInt();
-				contas.procurarPorConta(numeroConta);
-				KeyPress();
-				break;
 
-			case 3:
+			case 1 -> {
+				System.out.println("\n\tBem vinde ao Menu de Cadastro");
+				System.out.println("\t   Escolha a opção desejada");
+				System.out.println("\n\t [1] - Criar Conta ");
+				System.out.println("\t [2] - Atualizar Dados da Conta");
+				System.out.println("\t [3] - Consultar Conta");
+				System.out.println("\t [4] - Deletar Conta");
+				System.out.println("\t [5] - Voltar para o Menu");
 				System.out.println(" ______________________________________________________");
-				System.out.println("                                                       ");
-				System.out.println("\t\tAtualizar dados da Conta");
-				System.out.println(" ______________________________________________________");
-				System.out.println("                                                       ");
-				contas.atualizarDadosConta(leia, contas);
-				KeyPress();
-				break;
+				System.out.print("\n\t Escolha a opção desejada: ");
 
-			case 4:
-				System.out.println(" ______________________________________________________");
-				System.out.println("                                                       ");
-				System.out.println("\t\tFaça seu Pedido");
-				System.out.println(" ______________________________________________________");
-				System.out.println("                                                       ");
+				try {
+					opcoesConta = leia.nextInt();
+				} catch (InputMismatchException e) {
+					System.out.println("\nDigite valores inteiro!");
+					leia.nextLine();
+					opcoesConta = 0;
+				}
 
-			case 5:
-				System.out.println(" ______________________________________________________");
-				System.out.println("                                                       ");
-				System.out.println("\t\tAcompanhe seu pedido");
-				System.out.println(" ______________________________________________________");
-				System.out.println("                                                       ");
-				KeyPress();
-				break;
+				switch (opcoesConta) {
+				case 1:
+					System.out.println(" ______________________________________________________");
+					System.out.println("                                                       ");
+					System.out.println("\t\t\t Criar Conta");
+					System.out.println(" ______________________________________________________");
+					System.out.println("                                                       ");
+					contas.criarConta(leia, contas);
+					KeyPress();
+					break;
 
-			case 6:
-				System.out.println(" ______________________________________________________");
-				System.out.println("                                                       ");
-				System.out.println("\t\tDeletar a Conta");
-				System.out.println(" ______________________________________________________");
-				System.out.println("                                                       ");
-				System.out.print("\tDigite o número da conta: ");
-				numeroConta = leia.nextInt();
-				contas.deletar(numeroConta);
-				KeyPress();
-				break;
+				case 2:
+					System.out.println(" ______________________________________________________");
+					System.out.println("                                                       ");
+					System.out.println("\t\tAtualizar dados da Conta");
+					System.out.println(" ______________________________________________________");
+					System.out.println("                                                       ");
+					contas.atualizarDadosConta(leia, contas);
+					KeyPress();
+					break;
 
-			case 7:
-				System.out.println(" ______________________________________________________");
-				System.out.println("                                                       ");
-				System.out.println("\t\tListar todas as contas");
-				System.out.println(" ______________________________________________________");
-				System.out.println("                                                       ");
-				contas.listarTodasContas();
-				KeyPress();
-				break;
+				case 3:
+					System.out.println(" ______________________________________________________");
+					System.out.println("                                                       ");
+					System.out.println("\t\tConsultar Conta");
+					System.out.println(" ______________________________________________________");
+					System.out.println("                                                       ");
+					System.out.print("\tDigite o número da sua conta: ");
+					numeroConta = leia.nextInt();
+					contas.procurarPorConta(numeroConta);
+					KeyPress();
+					break;
 
-			default:
-				System.out.println("\n\t\tOpção Invalida!\n");
-				KeyPress();
-				break;
+				case 4:
+					System.out.println(" ______________________________________________________");
+					System.out.println("                                                       ");
+					System.out.println("\t\tDeletar a Conta");
+					System.out.println(" ______________________________________________________");
+					System.out.println("                                                       ");
+					System.out.print("\tDigite o número da conta: ");
+					numeroConta = leia.nextInt();
+					contas.deletar(numeroConta);
+					KeyPress();
+					break;
+
+				case 5:
+					System.out.println(" ______________________________________________________");
+					System.out.println("                                                       ");
+					System.out.println("\t\tVoltando para o Menu...");
+					System.out.println(" ______________________________________________________");
+					System.out.println("                                                       ");
+					break;
+
+				default:
+					System.out.println("\n\t\tOpção Invalida!\n");
+					KeyPress();
+					break;
+
+				}
+
 			}
+
+			case 2 -> {
+				System.out.println("\t [1] - Fazer Pedido");
+				System.out.println("\t [2] - Acompanhe seu pedido");
+				System.out.println("\t [3] - Voltar para o Menu");
+				System.out.println(" ______________________________________________________");
+				System.out.print("\n\t Escolha a opção desejada: ");
+
+				try {
+					opcoesPedido = leia.nextInt();
+				} catch (InputMismatchException e) {
+					System.out.println("\nDigite valores inteiro!");
+					leia.nextLine();
+					opcoesPedido = 0;
+				}
+
+				switch (opcoesPedido) {
+				case 1:
+					System.out.println(" ______________________________________________________");
+					System.out.println("                                                       ");
+					System.out.println("\t\t     Faça seu Pedido");
+					System.out.println("                                                       ");
+					System.out.println(" ------------------------------------------------------");
+					pedidos.facaPedido();
+					KeyPress();
+					break;
+
+				case 2:
+					System.out.println(" ______________________________________________________");
+					System.out.println("                                                       ");
+					System.out.println("\t\tAcompanhe seu pedido");
+					System.out.println(" ______________________________________________________");
+					System.out.println("                                                       ");
+					System.out.print("\tDigite o número do Pedido: ");
+					numeroPedido = leia.nextInt();
+					pedidos.listarPedido(numeroPedido);
+					contas.procurarPorConta(numeroPedido);
+					KeyPress();
+					break;
+
+				case 3:
+					System.out.println(" ______________________________________________________");
+					System.out.println("                                                       ");
+					System.out.println("\t\tVoltando para o Menu...");
+					System.out.println(" ______________________________________________________");
+					System.out.println("                                                       ");
+					break;
+
+				default:
+					System.out.println("\n\t\tOpção Invalida!\n");
+					KeyPress();
+					break;
+
+				}
+
+			}
+
+			}
+
 		}
 	}
 
