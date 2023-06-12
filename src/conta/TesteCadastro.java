@@ -6,6 +6,7 @@ import java.util.Scanner;
 
 import cardapio.Pedidos;
 import conta.controller.ControllerConta;
+import contaUtil.Cores;
 
 public class TesteCadastro {
 
@@ -18,10 +19,9 @@ public class TesteCadastro {
 		Scanner leia = new Scanner(System.in);
 
 		while (true) {
-			System.out.println();
+			System.out.println(Cores.TEXT_WHITE_BOLD);
 			System.out.println(" ______________________________________________________");
 			System.out.println("                                                       ");
-			// nome temporário, até decidir um;
 			System.out.println("\t\t    Sapore Nobile");
 			System.out.println("\t\t Pizzaria Artesanal");
 			System.out.println(" ______________________________________________________");
@@ -35,13 +35,13 @@ public class TesteCadastro {
 			try {
 				opcoesMenu = leia.nextInt();
 			} catch (InputMismatchException e) {
-				System.out.println("\n\tDigite valores inteiro!");
+				System.out.println(Cores.TEXT_RED_BOLD + "\n\tDigite valores inteiro!");
 				leia.nextLine();
 				opcoesMenu = 0;
 			}
 
 			if (opcoesMenu == 3) {
-				System.out.println("\n\tAGRADECEMOS SUA PREFERÊNCIA");
+				System.out.println("\n  Agradecemos aos nossos clientes pela preferência");
 				System.out.println("\t\tEquipe Sapore Nobile");
 
 				leia.close();
@@ -64,7 +64,7 @@ public class TesteCadastro {
 				try {
 					opcoesConta = leia.nextInt();
 				} catch (InputMismatchException e) {
-					System.out.println("\n\tDigite valores inteiro!");
+					System.out.println(Cores.TEXT_RED_BOLD + "\n\tDigite valores inteiro!");
 					leia.nextLine();
 					opcoesConta = 0;
 				}
@@ -73,7 +73,7 @@ public class TesteCadastro {
 				case 1:
 					System.out.println(" ______________________________________________________");
 					System.out.println("                                                       ");
-					System.out.println("\t\t\t Criar Conta");
+					System.out.println("\t\t    Criar Conta");
 					System.out.println(" ______________________________________________________");
 					System.out.println("                                                       ");
 					contas.criarConta(leia, contas);
@@ -124,7 +124,7 @@ public class TesteCadastro {
 					break;
 
 				default:
-					System.out.println("\n\t\tOpção Invalida!\n");
+					System.out.println(Cores.TEXT_RED_BOLD + "\n\t\tOpção Invalida!\n");
 					KeyPress();
 					break;
 
@@ -171,7 +171,7 @@ public class TesteCadastro {
 					contas.procurarPorConta(numeroPedido);
 					KeyPress();
 					break;
-					
+
 				case 3:
 					System.out.println(" ______________________________________________________");
 					System.out.println("                                                       ");
@@ -193,12 +193,18 @@ public class TesteCadastro {
 					break;
 
 				default:
-					System.out.println("\n\t\tOpção Invalida!\n");
+					System.out.println(Cores.TEXT_RED_BOLD + "\t\tOpção Invalida!\n");
 					KeyPress();
 					break;
 
 				}
 
+			}
+			
+			default ->{
+				System.out.println(Cores.TEXT_RED_BOLD + "\n\t\tOpção Invalida!\n");
+				KeyPress();
+				
 			}
 
 			}
@@ -208,10 +214,10 @@ public class TesteCadastro {
 
 	public static void KeyPress() {
 		try {
-			System.out.println("\n\n\tPressione Enter para Continuar ...");
+			System.out.println(Cores.TEXT_RED_BOLD + "\t\tPressione Enter para Continuar ...");
 			System.in.read();
 		} catch (IOException e) {
-			System.out.println("\tVocê pressionou uma tecla diferente de enter!");
+			System.out.println(Cores.TEXT_RED_BOLD + "\tVocê pressionou uma tecla diferente de enter!");
 		}
 
 	}

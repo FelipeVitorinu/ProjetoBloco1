@@ -3,6 +3,8 @@ package cardapio;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import contaUtil.Cores;
+
 public class Cardapio{
     Scanner leia = new Scanner(System.in);
     private String saborPizza, pagamentoEscolhido, formaPagamento;
@@ -17,15 +19,13 @@ public class Cardapio{
     public ArrayList<String> formaDePagamento = new ArrayList<>();
     
    
-    
-    
     // metodo construtor
    //Cadastra as formas de Pagamento
     public void formasDePagamento() {
     	formaDePagamento.clear();
-    	formaDePagamento.add(" Dinheiro");
-    	formaDePagamento.add(" Pix");
-    	formaDePagamento.add(" Cartão de Crédito");
+    	formaDePagamento.add("Dinheiro");
+    	formaDePagamento.add("Pix");
+    	formaDePagamento.add("Cartão de Crédito");
     }
     
     
@@ -45,25 +45,6 @@ public class Cardapio{
 	}
     
     
-	public void setNumeroPedido(int numeroPedido) {
-		this.numeroPedido = numeroPedido;
-	}
-
-	
-	public double getValorPizza() {
-        return valorPizza;
-    }
-	
-
-    public void setValorPizza(double valorPizza) {
-        this.valorPizza = valorPizza;
-    }
-
-    
-    public String getFormaPagamento() {
-        return formaPagamento;
-    }
-    
     //Adiciona sabores ao cardapio
     public void adicionarCardapio() {
     	listaSabores.clear();
@@ -81,6 +62,7 @@ public class Cardapio{
         
     }
     
+    
     //Adiciona Valores a lista valoresPizza
     public void adicionarValoresPizza() {
     	valoresPizza.clear();
@@ -93,9 +75,7 @@ public class Cardapio{
         valoresPizza.add(44.00);
         valoresPizza.add(43.00);
         valoresPizza.add(40.00);
-        valoresPizza.add(38.00);
- 
-        
+        valoresPizza.add(38.00); 
     }
    
     
@@ -133,7 +113,7 @@ public class Cardapio{
                 totalPedido += valorPizza;
                 saboresEscolhidos.add(saborPizza);
             } else {
-                System.out.println("  Opção inválida, escolha um sabor de nosso cardápio\n");
+                System.out.println(Cores.TEXT_RED_BOLD +"  Opção inválida, escolha um sabor de nosso cardápio\n");
             }
 
             System.out.print("  Deseja escolher mais algum sabor? [Sim/Não] ");
@@ -147,6 +127,7 @@ public class Cardapio{
         for (String sabor : saboresEscolhidos) {
             System.out.println(" - " + sabor);
         }
+        
         numeroPedido = gerarNumeroPedido();
         System.out.println(" ______________________________________________________");
         System.out.println("  Pedido: " + numeroPedido );
@@ -154,19 +135,131 @@ public class Cardapio{
         
         formaPagamento = formaPagamento();
         
-        
-        
         String informacoesPedido = "\tNúmero do pedido: " + numeroPedido + "\n\tSabores: " + saboresEscolhidos 
         		+ "\n\tValor Total: " + totalPedido + "\n\tForma de Pagamento: " + formaPagamento;
-        
         
         adicionarPedido(informacoesPedido);
         
     }
     
     
+  //Seleciona a forma de pagamento do cliente
+    public String formaPagamento() {
+        boolean continuar = true;
+
+        System.out.println(" ______________________________________________________");
+        System.out.println("  Formas de pagamento");
+        for (int i = 0; i < formaDePagamento.size(); i++) {
+            System.out.println(" " + (i + 1) + ". " + formaDePagamento.get(i));
+        }
+        System.out.print("\n  Escolha o número da forma de pagamento: ");
+        int indicePagamento = leia.nextInt();
+
+        if (indicePagamento >= 1 && indicePagamento <= formaDePagamento.size()) {
+            pagamentoEscolhido = formaDePagamento.get(indicePagamento - 1);
+            formaPagamento = pagamentoEscolhido;
+
+            while (continuar) {
+                if (pagamentoEscolhido.equalsIgnoreCase("Dinheiro")) {
+                    System.out.println(" ______________________________________________________");
+                    System.out.println("  Pagamento efetuado com sucesso");
+                    System.out.println("  Seu pedido está sendo preparado!");
+                    System.out.println(" ------------------------------------------------------");
+                    continuar = false;
+                } else if (pagamentoEscolhido.equalsIgnoreCase("Pix")) {
+                    System.out.println(" ______________________________________________________");
+                    System.out.println("  Pagamento efetuado com sucesso");
+                    System.out.println("  Seu pedido está sendo preparado!");
+                    System.out.println(" ------------------------------------------------------");
+                    continuar = false;
+                } else if (pagamentoEscolhido.equalsIgnoreCase("Cartão de Crédito") || pagamentoEscolhido.equalsIgnoreCase("Cartao de Credito")) {
+                    System.out.println(" ______________________________________________________");
+                    System.out.println("  Pagamento efetuado com sucesso");
+                    System.out.println("  Seu pedido está sendo preparado!");
+                    System.out.println(" ------------------------------------------------------");
+                    continuar = false;
+                } else {
+                    System.out.println("\n          *Forma de pagamento inválida!*             ");
+                    System.out.println(" ______________________________________________________");
+                    System.out.println("  Escolha uma das formas de pagamento abaixo:");
+                    System.out.println("  Formas de pagamento");
+                    for (int i = 0; i < formaDePagamento.size(); i++) {
+                        System.out.println(" " + (i + 1) + ". " + formaDePagamento.get(i));
+                    }
+                    System.out.print("\n  Escolha o número da forma de pagamento: ");
+                    indicePagamento = leia.nextInt();
+                    if (indicePagamento >= 1 && indicePagamento <= formaDePagamento.size()) {
+                        pagamentoEscolhido = formaDePagamento.get(indicePagamento - 1);
+                        formaPagamento = pagamentoEscolhido;
+                    }
+                }
+            }
+        } else {
+            System.out.println(" ______________________________________________________");
+            System.out.println(Cores.TEXT_RED_BOLD +"  Forma de pagamento inválido!");
+        }
+
+        return formaPagamento;
+    }
     
-    //Seleciona a forma de pagamento do cliente
+    
+    //Lista todos os pedidos na listaPedidos
+    public void listarPedidos() {
+        System.out.println("\nLista de Pedidos:");
+
+        if (listaPedidos.isEmpty()) {
+            System.out.println(Cores.TEXT_RED_BOLD +"\tNenhum pedido cadastrado.");
+        } else {
+            for (String pedido : listaPedidos) {
+                System.out.println("- " + pedido);
+            }
+        }
+    }
+    
+    
+    //Lista um pedido por vez, atraves do numero de pedido
+    public void listarPedido(int numeroPedido) {
+        System.out.println("\n\tDetalhes do Pedido :");
+
+        boolean pedidoEncontrado = false;
+
+        for (String pedido : listaPedidos) {
+            if (pedido.contains("Número do pedido: " + numeroPedido)) {
+                System.out.println(pedido);
+                pedidoEncontrado = true;
+                break;
+            }
+        }
+
+        if (!pedidoEncontrado) {
+            System.out.println(Cores.TEXT_RED_BOLD +"\t\tPedido não encontrado.");
+        }
+    }
+    
+    
+    //exlusão de pedidos através do numero do pedido
+    public void excluirPedido(int numeroPedido) {
+        boolean pedidoEncontrado = false;
+
+        for (int i = 0; i < listaPedidos.size(); i++) {
+            String pedido = listaPedidos.get(i);
+            if (pedido.contains("Número do pedido: " + numeroPedido)) {
+                listaPedidos.remove(i);
+                pedidoEncontrado = true;
+                System.out.println("\tPedido " + numeroPedido + " excluído com sucesso.");
+                break;
+            }
+        }
+
+        if (!pedidoEncontrado) {
+            System.out.println(Cores.TEXT_RED_BOLD + "\t\tPedido não encontrado.");
+        }
+    }
+    
+    
+    //Métodos alternativos
+    /* 
+    //Seleciona a forma de pagamento do cliente atraves de String (Alternativo)
     public String formaPagamento() {
     	boolean continuar = true;
     	
@@ -220,63 +313,9 @@ public class Cardapio{
     }
     	return formaPagamento;
     	
-    }
+    }*/
     
-    
-    //Lista todos os pedidos na listaPedidos
-    public void listarPedidos() {
-        System.out.println("\nLista de Pedidos:");
-
-        if (listaPedidos.isEmpty()) {
-            System.out.println("Nenhum pedido cadastrado.");
-        } else {
-            for (String pedido : listaPedidos) {
-                System.out.println("- " + pedido);
-            }
-        }
-    }
-    
-    //Lista um pedido por vez, atraves do numero de pedido
-    public void listarPedido(int numeroPedido) {
-        System.out.println("\n\tDetalhes do Pedido :");
-
-        boolean pedidoEncontrado = false;
-
-        for (String pedido : listaPedidos) {
-            if (pedido.contains("Número do pedido: " + numeroPedido)) {
-                System.out.println(pedido);
-                pedidoEncontrado = true;
-                break;
-            }
-        }
-
-        if (!pedidoEncontrado) {
-            System.out.println("Pedido não encontrado.");
-        }
-    }
-    
-    public void excluirPedido(int numeroPedido) {
-        boolean pedidoEncontrado = false;
-
-        for (int i = 0; i < listaPedidos.size(); i++) {
-            String pedido = listaPedidos.get(i);
-            if (pedido.contains("Número do pedido: " + numeroPedido)) {
-                listaPedidos.remove(i);
-                pedidoEncontrado = true;
-                System.out.println("\tPedido " + numeroPedido + " excluído com sucesso.");
-                break;
-            }
-        }
-
-        if (!pedidoEncontrado) {
-            System.out.println("Pedido não encontrado.");
-        }
-    }
-    
-    
-    
-    
-    
+   
     //metodo para mostrar status do pedido
     /*public void statusPedido() {
     	System.out.println("\tPedido: " + this.numeroPedido);
@@ -286,10 +325,10 @@ public class Cardapio{
 	
 	}*/
     
-    	/*public void visualizar() {
+    	
 		
 		
-}*/
-    
-    
 }
+    
+    
+
