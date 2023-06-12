@@ -22,7 +22,8 @@ public class TesteCadastro {
 			System.out.println(" ______________________________________________________");
 			System.out.println("                                                       ");
 			// nome temporário, até decidir um;
-			System.out.println("\t\t Pizzaria Ai que Massa");
+			System.out.println("\t\t    Sapore Nobile");
+			System.out.println("\t\t Pizzaria Artesanal");
 			System.out.println(" ______________________________________________________");
 			System.out.println("\n\t\t\t MENU\n");
 			System.out.println("\t\t[1] - Cadastro");
@@ -34,14 +35,14 @@ public class TesteCadastro {
 			try {
 				opcoesMenu = leia.nextInt();
 			} catch (InputMismatchException e) {
-				System.out.println("\nDigite valores inteiro!");
+				System.out.println("\n\tDigite valores inteiro!");
 				leia.nextLine();
 				opcoesMenu = 0;
 			}
 
 			if (opcoesMenu == 3) {
 				System.out.println("\n\tAGRADECEMOS SUA PREFERÊNCIA");
-				System.out.println("\t\tEQUIPE Pizzaria ai que massa");
+				System.out.println("\t\tEquipe Sapore Nobile");
 
 				leia.close();
 				System.exit(0);
@@ -63,7 +64,7 @@ public class TesteCadastro {
 				try {
 					opcoesConta = leia.nextInt();
 				} catch (InputMismatchException e) {
-					System.out.println("\nDigite valores inteiro!");
+					System.out.println("\n\tDigite valores inteiro!");
 					leia.nextLine();
 					opcoesConta = 0;
 				}
@@ -142,7 +143,7 @@ public class TesteCadastro {
 				try {
 					opcoesPedido = leia.nextInt();
 				} catch (InputMismatchException e) {
-					System.out.println("\nDigite valores inteiro!");
+					System.out.println("\n\tDigite valores inteiro!");
 					leia.nextLine();
 					opcoesPedido = 0;
 				}
