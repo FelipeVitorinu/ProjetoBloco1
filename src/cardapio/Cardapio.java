@@ -16,6 +16,9 @@ public class Cardapio{
     public ArrayList<String> saboresEscolhidos = new ArrayList<>();
     public ArrayList<String> formaDePagamento = new ArrayList<>();
     
+   
+    
+    
     // metodo construtor
    //Cadastra as formas de Pagamento
     public void formasDePagamento() {
@@ -73,7 +76,7 @@ public class Cardapio{
         listaSabores.add("Dois Queijos                                 ");
         listaSabores.add("Espanhola                                    ");
         listaSabores.add("Lombo                                        ");
-        listaSabores.add("Napolitana                                   ");
+        listaSabores.add("Napolitana                                  ");
         
         
     }
@@ -162,9 +165,11 @@ public class Cardapio{
     }
     
     
+    
     //Seleciona a forma de pagamento do cliente
     public String formaPagamento() {
     	boolean continuar = true;
+    	
     	
     	 System.out.println(" ______________________________________________________");
          System.out.println("  Formas de pagamento");
@@ -176,6 +181,7 @@ public class Cardapio{
          formaPagamento = pagamentoEscolhido;
     	
     	while (continuar) {
+    	
     		
     	if(pagamentoEscolhido.equalsIgnoreCase("Dinheiro")){
     		System.out.println(" ______________________________________________________");
@@ -189,7 +195,7 @@ public class Cardapio{
     		System.out.println("  Seu pedido está sendo preparado!");
     		System.out.println(" ------------------------------------------------------");
     		continuar = false;
-    	}else if(pagamentoEscolhido.equalsIgnoreCase("Cartão de Crédito")){
+    	}else if(pagamentoEscolhido.equalsIgnoreCase("Cartão de Crédito") || pagamentoEscolhido.equalsIgnoreCase("Cartao de Credito") ){
     		System.out.println(" ______________________________________________________");
     		System.out.println("  Pagamento efetuado com sucesso");
     		System.out.println("  Seu pedido está sendo preparado!");
@@ -266,6 +272,9 @@ public class Cardapio{
             System.out.println("Pedido não encontrado.");
         }
     }
+    
+    
+    
     
     
     //metodo para mostrar status do pedido
