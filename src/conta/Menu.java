@@ -8,7 +8,7 @@ import cardapio.Pedidos;
 import conta.controller.ControllerConta;
 import contaUtil.Cores;
 
-public class TesteCadastro {
+public class Menu {
 
 	public static void main(String[] args) {
 		ControllerConta contas = new ControllerConta();

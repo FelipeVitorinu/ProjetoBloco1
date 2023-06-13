@@ -11,7 +11,7 @@ public class Cardapio{
     private double valorPizza, totalPedido;
     private int numeroPedido;
     
-
+    //Listas
     private ArrayList<String> listaPedidos = new ArrayList<String>();
     public ArrayList<String> listaSabores = new ArrayList<String>();
     public ArrayList<Double> valoresPizza = new ArrayList<Double>();
@@ -136,7 +136,7 @@ public class Cardapio{
 	        System.out.println("  Pedido: " + numeroPedido );
 	        System.out.println("  O valor total do seu pedido é: R$" + totalPedido);
 	        
-	        formaPagamento = formaPagamento();
+	        formaPagamento = Pagamento();
 	        
 	        String informacoesPedido = "\tNúmero do pedido: " + numeroPedido + "\n\tSabores: " + saboresEscolhidos 
 	        		+ "\n\tValor Total: " + totalPedido + "\n\tForma de Pagamento: " + formaPagamento;
@@ -151,13 +151,13 @@ public class Cardapio{
     
     
   //Seleciona a forma de pagamento do cliente
-    public String formaPagamento() {
+    public String Pagamento() {
         boolean continuar = true;
 
         System.out.println(" ______________________________________________________");
         System.out.println("  Formas de pagamento");
-        for (int i = 0; i < formaDePagamento.size(); i++) {
-            System.out.println(" " + (i + 1) + ". " + formaDePagamento.get(i));
+        for (int indice = 0; indice < formaDePagamento.size(); indice++) {
+            System.out.println(" " + (indice + 1) + ". " + formaDePagamento.get(indice));
         }
         System.out.print("\n  Escolha o número da forma de pagamento: ");
         int indicePagamento = leia.nextInt();
@@ -190,8 +190,8 @@ public class Cardapio{
                     System.out.println(" ______________________________________________________");
                     System.out.println("  Escolha uma das formas de pagamento abaixo:");
                     System.out.println("  Formas de pagamento");
-                    for (int i = 0; i < formaDePagamento.size(); i++) {
-                        System.out.println(" " + (i + 1) + ". " + formaDePagamento.get(i));
+                    for (int indice = 0; indice < formaDePagamento.size(); indice++) {
+                        System.out.println(" " + (indice + 1) + ". " + formaDePagamento.get(indice));
                     }
                     System.out.print("\n  Escolha o número da forma de pagamento: ");
                     indicePagamento = leia.nextInt();
@@ -213,10 +213,11 @@ public class Cardapio{
     //Lista todos os pedidos na listaPedidos
     public void listarPedidos() {
         System.out.println("\nLista de Pedidos:");
-
+        //verifica se a lista está vazia
         if (listaPedidos.isEmpty()) {
             System.out.println(Cores.TEXT_RED_BOLD +"\tNenhum pedido cadastrado.");
         } else {
+        	//percorre a lista e imprime os valores
             for (String pedido : listaPedidos) {
                 System.out.println("- " + pedido);
             }
@@ -248,10 +249,10 @@ public class Cardapio{
     public void excluirPedido(int numeroPedido) {
         boolean pedidoEncontrado = false;
 
-        for (int i = 0; i < listaPedidos.size(); i++) {
-            String pedido = listaPedidos.get(i);
+        for (int indice = 0; indice < listaPedidos.size(); indice++) {
+            String pedido = listaPedidos.get(indice);
             if (pedido.contains("Número do pedido: " + numeroPedido)) {
-                listaPedidos.remove(i);
+                listaPedidos.remove(indice);
                 pedidoEncontrado = true;
                 System.out.println("\tPedido " + numeroPedido + " excluído com sucesso.");
                 break;
