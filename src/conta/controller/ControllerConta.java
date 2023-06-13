@@ -40,7 +40,7 @@ public class ControllerConta implements InterfacePizzaria {
 	@Override
 	public void cadastrar(CadastroCliente conta) {
 		listaConta.add(conta);
-		System.out.println("\n\tA Conta numero: " + conta.getNumeroConta() + " foi criada com sucesso!");
+		System.out.println(Cores.TEXT_GREEN_BOLD + "\n\tA Conta numero: " + conta.getNumeroConta() + " foi criada com sucesso!");
 
 	}
 

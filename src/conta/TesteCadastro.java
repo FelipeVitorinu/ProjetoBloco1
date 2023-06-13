@@ -30,7 +30,7 @@ public class TesteCadastro {
 			System.out.println("\t\t[2] - Pedidos");
 			System.out.println("\t\t[3] - Sair");
 			System.out.println(" ______________________________________________________");
-			System.out.print("\n\t Escolha a opção desejada: ");
+			System.out.print("\n\t    Escolha a opção desejada: ");
 
 			try {
 				opcoesMenu = leia.nextInt();
@@ -51,15 +51,14 @@ public class TesteCadastro {
 			switch (opcoesMenu) {
 
 			case 1 -> {
-				System.out.println("\n\tBem vinde ao Menu de Cadastro");
-				System.out.println("\t   Escolha a opção desejada");
-				System.out.println("\n\t [1] - Criar Conta ");
+				System.out.println(" ______________________________________________________");
+				System.out.println("\n\t  Bem vinde ao Menu de Cadastro\n");
+				System.out.println("\t [1] - Criar Conta ");
 				System.out.println("\t [2] - Atualizar Dados da Conta");
 				System.out.println("\t [3] - Consultar Conta");
 				System.out.println("\t [4] - Deletar Conta");
 				System.out.println("\t [5] - Voltar para o Menu");
-				System.out.println(" ______________________________________________________");
-				System.out.print("\n\t Escolha a opção desejada: ");
+				System.out.print("\n\t   Escolha a opção desejada: ");
 
 				try {
 					opcoesConta = leia.nextInt();
@@ -138,7 +137,7 @@ public class TesteCadastro {
 				System.out.println("\t [3] - Deletar pedidos");
 				System.out.println("\t [4] - Voltar para o Menu");
 				System.out.println(" ______________________________________________________");
-				System.out.print("\n\t Escolha a opção desejada: ");
+				System.out.print("\n\t    Escolha a opção desejada: ");
 
 				try {
 					opcoesPedido = leia.nextInt();

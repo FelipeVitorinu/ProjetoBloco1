@@ -113,32 +113,38 @@ public class Cardapio{
                 totalPedido += valorPizza;
                 saboresEscolhidos.add(saborPizza);
             } else {
-                System.out.println(Cores.TEXT_RED_BOLD +"  Opção inválida, escolha um sabor de nosso cardápio\n");
+                System.out.println("  Opção inválida, escolha um sabor de nosso cardápio\n");
             }
+            
 
             System.out.print("  Deseja escolher mais algum sabor? [Sim/Não] ");
-            leia.nextLine(); // Limpar o buffer do scanner
+            leia.nextLine();
             continuar = leia.nextLine();
 
         } while (continuar.equalsIgnoreCase("Sim"));
         
-        System.out.println(" ______________________________________________________");
-        System.out.println("\n  Sabores escolhidos:");
-        for (String sabor : saboresEscolhidos) {
-            System.out.println(" - " + sabor);
-        }
-        
-        numeroPedido = gerarNumeroPedido();
-        System.out.println(" ______________________________________________________");
-        System.out.println("  Pedido: " + numeroPedido );
-        System.out.println("  O valor total do seu pedido é: R$" + totalPedido);
-        
-        formaPagamento = formaPagamento();
-        
-        String informacoesPedido = "\tNúmero do pedido: " + numeroPedido + "\n\tSabores: " + saboresEscolhidos 
-        		+ "\n\tValor Total: " + totalPedido + "\n\tForma de Pagamento: " + formaPagamento;
-        
-        adicionarPedido(informacoesPedido);
+        if(totalPedido != 0) {
+	        System.out.println(" ______________________________________________________");
+	        System.out.println("\n  Sabores escolhidos:");
+	        for (String sabor : saboresEscolhidos) {
+	            System.out.println(" - " + sabor);
+	        }
+	        
+	        numeroPedido = gerarNumeroPedido();
+	        System.out.println(" ______________________________________________________");
+	        System.out.println("  Pedido: " + numeroPedido );
+	        System.out.println("  O valor total do seu pedido é: R$" + totalPedido);
+	        
+	        formaPagamento = formaPagamento();
+	        
+	        String informacoesPedido = "\tNúmero do pedido: " + numeroPedido + "\n\tSabores: " + saboresEscolhidos 
+	        		+ "\n\tValor Total: " + totalPedido + "\n\tForma de Pagamento: " + formaPagamento;
+	        
+	        adicionarPedido(informacoesPedido);
+	        }else {
+	        	System.out.println(Cores.TEXT_RED_BOLD + "\n\t  Você não realizou nenhum pedido!\n");
+	        }
+       
         
     }
     
@@ -179,7 +185,7 @@ public class Cardapio{
                     System.out.println(" ------------------------------------------------------");
                     continuar = false;
                 } else {
-                    System.out.println("\n          *Forma de pagamento inválida!*             ");
+                    System.out.println(Cores.TEXT_RED_BOLD + "\n          *Forma de pagamento inválida!*             ");
                     System.out.println(" ______________________________________________________");
                     System.out.println("  Escolha uma das formas de pagamento abaixo:");
                     System.out.println("  Formas de pagamento");
