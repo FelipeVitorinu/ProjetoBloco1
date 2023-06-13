@@ -98,10 +98,11 @@ public class Cardapio{
     //Metodo para iniciar o pedido e coletar informações
     public void facaPedido() {
         int opcaoPizza;
-        String continuar;
+        String continuar;//condição do while
         
         do {
-        	cardapio();
+        	cardapio();//chama o metodo e mostra o cardapio
+        	
             System.out.print("\n  Digite o código do sabor desejado: ");
             opcaoPizza = leia.nextInt();
             ArrayList<String> listaSabores = this.listaSabores;
